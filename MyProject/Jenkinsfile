@@ -1,0 +1,14 @@
+node('docker') {
+
+    stage 'Checkout'
+        sh "echo checkout"
+    
+    stage 'Compile'
+        sh "echo compile" 
+
+     stage 'Test'
+        sh "echo test"        
+      
+     stage 'Publish'
+        sh "echo Publish"   
+}
