@@ -1,5 +1,14 @@
 FROM jenkins/jenkins:latest
 
+# Install jenkins job builder as root
+USER root
+RUN apt-get update && apt-get -y upgrade && apt-get -y install python-pip
+RUN pip install jenkins-job-builder
+
+
+# switch back to jen kins user and configure plugins
+USER jenkins
+
 RUN /usr/local/bin/install-plugins.sh git mstest matrix-auth workflow-aggregator docker-workflow blueocean credentials-binding
 
 ENV JENKINS_USER admin
