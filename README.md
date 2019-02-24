@@ -4,7 +4,7 @@ Automated builds using jenkins and docker
 
 ## Start jenkins master and slave
 ```
-docker-compose up
+docker-compose up --scale jenkins-slave=2
 
 docker-compose up -d (background)
 ```
@@ -23,3 +23,7 @@ docker build -t jenkins-slave slave/
 ```
 docker-compose scale jenkins-slave=2
 ```
+
+References
+ - https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
+
